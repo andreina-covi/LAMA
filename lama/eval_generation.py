@@ -4,6 +4,11 @@
 # This source code is licensed under the license found in the
 # LICENSE file in the root directory of this source tree.
 #
+import sys, os
+
+sys.path.append(os.path.abspath(os.path.join('..', 'LAMA')))
+
+
 from lama.modules import build_model_by_name
 from lama.utils import print_sentence_predictions, load_vocab
 import lama.options as options

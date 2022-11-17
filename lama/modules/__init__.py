@@ -7,7 +7,7 @@
 from .bert_connector import Bert
 from .elmo_connector import Elmo
 from .gpt_connector import GPT
-from .transformerxl_connector import TransformerXL
+# from .transformerxl_connector import TransformerXL
 from .roberta_connector import Roberta
 
 

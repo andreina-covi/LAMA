@@ -24,24 +24,24 @@ LMs = [
     #     "transformerxl_model_name": "transfo-xl-wt103",
     #     "transformerxl_model_dir": "pre-trained_language_models/transformerxl/transfo-xl-wt103/",
     # },
-    # {
-    #     "lm": "elmo",
-    #     "label": "elmo",
-    #     "models_names": ["elmo"],
-    #     "elmo_model_name": "elmo_2x4096_512_2048cnn_2xhighway",
-    #     "elmo_vocab_name": "vocab-2016-09-10.txt",
-    #     "elmo_model_dir": "pre-trained_language_models/elmo/original",
-    #     "elmo_warm_up_cycles": 10,
-    # },
-    # {
-    #     "lm": "elmo",
-    #     "label": "elmo5B",
-    #     "models_names": ["elmo"],
-    #     "elmo_model_name": "elmo_2x4096_512_2048cnn_2xhighway_5.5B",
-    #     "elmo_vocab_name": "vocab-enwiki-news-500000.txt",
-    #     "elmo_model_dir": "pre-trained_language_models/elmo/original5.5B/",
-    #     "elmo_warm_up_cycles": 10,
-    # },
+    {
+        "lm": "elmo",
+        "label": "elmo",
+        "models_names": ["elmo"],
+        "elmo_model_name": "elmo_2x4096_512_2048cnn_2xhighway",
+        "elmo_vocab_name": "vocab-2016-09-10.txt",
+        "elmo_model_dir": "pre-trained_language_models/elmo/original",
+        "elmo_warm_up_cycles": 10,
+    },
+    {
+        "lm": "elmo",
+        "label": "elmo5B",
+        "models_names": ["elmo"],
+        "elmo_model_name": "elmo_2x4096_512_2048cnn_2xhighway_5.5B",
+        "elmo_vocab_name": "vocab-enwiki-news-500000.txt",
+        "elmo_model_dir": "pre-trained_language_models/elmo/original5.5B/",
+        "elmo_warm_up_cycles": 10,
+    },
     {
         "lm": "bert",
         "label": "bert_base",
@@ -49,13 +49,13 @@ LMs = [
         "bert_model_name": "bert-base-cased",
         "bert_model_dir": "pre-trained_language_models/bert/cased_L-12_H-768_A-12",
     },
-    # {
-    #     "lm": "bert",
-    #     "label": "bert_large",
-    #     "models_names": ["bert"],
-    #     "bert_model_name": "bert-large-cased",
-    #     "bert_model_dir": "pre-trained_language_models/bert/cased_L-24_H-1024_A-16",
-    # },
+    {
+        "lm": "bert",
+        "label": "bert_large",
+        "models_names": ["bert"],
+        "bert_model_name": "bert-large-cased",
+        "bert_model_dir": "pre-trained_language_models/bert/cased_L-24_H-1024_A-16",
+    },
 ]
 
 
@@ -157,7 +157,8 @@ def run_experiments(
     return mean_p1, all_Precision1
 
 
-def get_TREx_parameters(data_path_pre="data/"):
+# def get_TREx_parameters(data_path_pre="data/"):
+def get_TREx_parameters(data_path_pre="../data/"):
     relations = load_file("{}relations.jsonl".format(data_path_pre))
     data_path_pre += "TREx/"
     data_path_post = ".jsonl"
@@ -182,19 +183,21 @@ def get_GoogleRE_parameters():
             "template_negated": "[X] did not die in [Y] .",
         },
     ]
-    data_path_pre = "data/Google_RE/"
+    # data_path_pre = "data/Google_RE/"
+    data_path_pre = "../data/Google_RE/"
     data_path_post = "_test.jsonl"
     return relations, data_path_pre, data_path_post
 
 
-def get_ConceptNet_parameters(data_path_pre="data/"):
+# def get_ConceptNet_parameters(data_path_pre="data/"):
+def get_ConceptNet_parameters(data_path_pre="../data/"):
     relations = [{"relation": "test"}]
     data_path_pre += "ConceptNet/"
     data_path_post = ".jsonl"
     return relations, data_path_pre, data_path_post
 
-
-def get_Squad_parameters(data_path_pre="data/"):
+# def get_Squad_parameters(data_path_pre="data/"):
+def get_Squad_parameters(data_path_pre="../data/"):
     relations = [{"relation": "test"}]
     data_path_pre += "Squad/"
     data_path_post = ".jsonl"
